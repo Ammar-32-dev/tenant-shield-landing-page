@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Tenant's Shield — Legal tactics and templates to recover your security deposit from Indian landlords. Copy-paste legal notices, IPC references, and court filing guides.">
-    <title>The Tenant's Shield | Recover Your Security Deposit</title>
+    <meta name="description" content="The Service-to-Product Switch — The systematic roadmap for IT service company engineers to transition into product-based startups and MAANG. Code templates, DSA roadmaps, and notice period buyout scripts.">
+    <title>The Service-to-Product Switch | Escape the IT Service Trap</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
     <style>
         /* ═══════════════════════════════════════════
-           DESIGN SYSTEM — Legal Noir Scrolltelling
-           VARIANCE: 9 | MOTION: 8 | DENSITY: 3
+           DESIGN SYSTEM — Developer Noir Terminal
            ═══════════════════════════════════════════ */
 
         :root {
-            --obsidian: #08080a;
-            --obsidian-warm: #0e0e12;
-            --surface: #141418;
-            --surface-raised: #1a1a20;
-            --border: #252530;
+            --obsidian: #060608;
+            --obsidian-warm: #0a0a0f;
+            --surface: #101015;
+            --surface-raised: #151520;
+            --border: #1e1e2a;
             --text-primary: #e8e6e3;
-            --text-secondary: #8a8a96;
-            --text-muted: #55556a;
-            --accent: #c8553d;
-            --accent-glow: rgba(200, 85, 61, 0.15);
+            --text-secondary: #9090a2;
+            --text-muted: #58586c;
+            --accent: #10b981; /* Emerald Terminal Green */
+            --accent-glow: rgba(16, 185, 129, 0.12);
             --jade: #3ecf8e;
             --jade-glow: rgba(62, 207, 142, 0.1);
-            --warning: #e63946;
-            --gold: #d4a853;
+            --warning: #ef4444;
+            --gold: #f59e0b;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,10 +54,51 @@
             inset: 0;
             z-index: 9999;
             pointer-events: none;
-            opacity: 0.035;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
             background-repeat: repeat;
             background-size: 256px 256px;
+        }
+
+        /* Terminal Top Bar */
+        .term-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(6, 6, 8, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 40px;
+        }
+
+        .term-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
         }
 
         /* ═══════ TYPOGRAPHY ═══════ */
@@ -80,7 +120,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 40px;
+            padding: 100px 40px 60px 40px;
             position: relative;
             z-index: 2;
         }
@@ -88,9 +128,9 @@
         /* ═══════ REVEAL ANIMATIONS ═══════ */
         .reveal {
             opacity: 0;
-            transform: translateY(60px) rotateX(8deg);
-            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(40px) rotateX(4deg);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .reveal.visible {
@@ -98,25 +138,23 @@
             transform: translateY(0) rotateX(0deg);
         }
 
-        .reveal-delay-1 { transition-delay: 0.15s; }
-        .reveal-delay-2 { transition-delay: 0.3s; }
-        .reveal-delay-3 { transition-delay: 0.45s; }
-        .reveal-delay-4 { transition-delay: 0.6s; }
-        .reveal-delay-5 { transition-delay: 0.75s; }
+        .reveal-delay-1 { transition-delay: 0.12s; }
+        .reveal-delay-2 { transition-delay: 0.24s; }
+        .reveal-delay-3 { transition-delay: 0.36s; }
+        .reveal-delay-4 { transition-delay: 0.48s; }
+        .reveal-delay-5 { transition-delay: 0.6s; }
 
-        /* Slide from left */
         .reveal-left {
             opacity: 0;
-            transform: translateX(-100px);
+            transform: translateX(-80px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                         transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal-left.visible { opacity: 1; transform: translateX(0); }
 
-        /* Slide from right */
         .reveal-right {
             opacity: 0;
-            transform: translateX(100px);
+            transform: translateX(80px);
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
                         transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -127,10 +165,9 @@
            ═══════════════════════════════════ */
         #scene-opening {
             background:
-                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(200, 85, 61, 0.06) 0%, transparent 70%),
-                radial-gradient(ellipse 60% 50% at 80% 60%, rgba(62, 207, 142, 0.03) 0%, transparent 70%),
+                radial-gradient(ellipse 80% 60% at 20% 40%, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 80% 60%, rgba(62, 207, 142, 0.02) 0%, transparent 70%),
                 var(--obsidian);
-            padding-top: 80px;
         }
 
         .hero-chapter {
@@ -139,7 +176,7 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -154,13 +191,13 @@
 
         .hero-headline {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
             font-weight: 900;
-            line-height: 0.95;
-            letter-spacing: -3px;
+            line-height: 1.0;
+            letter-spacing: -2px;
             color: var(--text-primary);
-            max-width: 900px;
-            margin-bottom: 40px;
+            max-width: 950px;
+            margin-bottom: 30px;
         }
 
         .hero-headline em {
@@ -170,23 +207,12 @@
             position: relative;
         }
 
-        .hero-headline em::after {
-            content: '';
-            position: absolute;
-            bottom: 4px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--accent);
-            opacity: 0.4;
-        }
-
         .hero-sub {
             font-size: clamp(1rem, 1.8vw, 1.25rem);
             color: var(--text-secondary);
-            max-width: 560px;
+            max-width: 620px;
             line-height: 1.7;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-weight: 300;
         }
 
@@ -194,7 +220,7 @@
             display: flex;
             align-items: baseline;
             gap: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
 
         .price-current {
@@ -210,16 +236,16 @@
             text-decoration: line-through;
         }
 
-        /* CTA Button — Tactile */
+        /* CTA Button — Terminal Tactile */
         .cta-primary {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 20px 40px;
+            padding: 18px 36px;
             background: var(--accent);
-            color: white;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1rem;
+            color: var(--obsidian);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -234,20 +260,11 @@
 
         .cta-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(200, 85, 61, 0.3),
-                        0 0 0 1px rgba(200, 85, 61, 0.5);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.25);
         }
 
         .cta-primary:active {
             transform: translateY(-1px) scale(0.98);
-        }
-
-        .cta-primary::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
-            pointer-events: none;
         }
 
         .cta-subtext {
@@ -260,7 +277,7 @@
         }
 
         /* ═══════════════════════════════════
-           SCENE 2 — THE CRIME (PROBLEMS)
+           SCENE 2 — THE TRAP (PROBLEMS)
            ═══════════════════════════════════ */
         #scene-crime {
             background:
@@ -273,7 +290,7 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--warning);
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -288,33 +305,34 @@
 
         .crime-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.2rem, 5vw, 4rem);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.05;
             letter-spacing: -2px;
-            margin-bottom: 60px;
-            max-width: 700px;
+            margin-bottom: 50px;
+            max-width: 800px;
         }
 
         .crime-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2px;
+            gap: 20px;
         }
 
         .crime-card {
-            padding: 50px 40px;
+            padding: 40px;
             background: var(--surface);
+            border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
-            transition: background 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: default;
         }
 
         .crime-card:hover {
             background: var(--surface-raised);
-            transform: scale(1.01);
-            z-index: 2;
+            border-color: var(--warning);
+            transform: translateY(-4px);
         }
 
         .crime-card::before {
@@ -327,7 +345,7 @@
             background: var(--warning);
             transform: scaleY(0);
             transform-origin: top;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .crime-card:hover::before {
@@ -336,25 +354,24 @@
 
         .crime-number {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--warning);
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-bottom: 20px;
         }
 
         .crime-card h3 {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
             color: var(--text-primary);
         }
 
         .crime-card p {
             font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.7;
-            max-width: 380px;
+            line-height: 1.65;
         }
 
         /* ═══════════════════════════════════
@@ -369,11 +386,11 @@
         .weapon-layout {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            gap: 80px;
+            gap: 60px;
             align-items: center;
         }
 
-        /* 3D Book */
+        /* 3D Book / Code Console Mockup */
         .book-3d-wrapper {
             perspective: 1000px;
             display: flex;
@@ -382,58 +399,55 @@
 
         .book-3d {
             width: 280px;
-            height: 400px;
+            height: 380px;
             position: relative;
             transform-style: preserve-3d;
-            transform: rotateY(-25deg) rotateX(5deg);
+            transform: rotateY(-20deg) rotateX(4deg);
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
         }
 
         .book-3d:hover {
-            transform: rotateY(-5deg) rotateX(2deg) translateZ(30px);
+            transform: rotateY(-3deg) rotateX(1deg) translateZ(20px);
         }
 
         .book-cover {
             position: absolute;
             inset: 0;
-            background: linear-gradient(160deg, #1a1520 0%, #0d0b10 40%, var(--accent) 150%);
-            border-radius: 2px 12px 12px 2px;
-            padding: 50px 30px;
+            background: linear-gradient(155deg, #101018 0%, #08080c 60%, var(--accent) 180%);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            padding: 40px 30px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            box-shadow:
-                10px 10px 30px rgba(0,0,0,0.6),
-                -2px 0 10px rgba(0,0,0,0.3),
-                inset -2px 0 10px rgba(255,255,255,0.03);
-            transform: translateZ(20px);
-            border-left: 4px solid rgba(200, 85, 61, 0.6);
+            box-shadow: 15px 15px 35px rgba(0,0,0,0.7);
+            transform: translateZ(15px);
+            border-left: 5px solid var(--accent);
         }
 
         .book-spine {
             position: absolute;
-            left: -18px;
+            left: -14px;
             top: 0;
-            width: 20px;
+            width: 15px;
             height: 100%;
-            background: linear-gradient(to right, #0a080c, #151218);
-            transform: rotateY(90deg) translateZ(0px);
+            background: linear-gradient(to right, #050508, #101015);
+            transform: rotateY(90deg);
             transform-origin: right;
-            border-radius: 2px 0 0 2px;
         }
 
         .book-back {
             position: absolute;
             inset: 0;
-            background: #0a080c;
+            background: #050508;
             transform: translateZ(-2px);
-            border-radius: 2px 12px 12px 2px;
+            border-radius: 4px;
         }
 
         .book-tag {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.55rem;
+            font-size: 0.6rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--accent);
@@ -443,31 +457,31 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
             font-weight: 900;
-            line-height: 1.1;
+            line-height: 1.15;
             color: white;
         }
 
         .book-cover-subtitle {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.5);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.45);
             line-height: 1.5;
         }
 
         .weapon-content h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 900;
-            line-height: 1.05;
+            line-height: 1.1;
             letter-spacing: -1px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .weapon-desc {
             color: var(--text-secondary);
             font-size: 1.05rem;
-            margin-bottom: 40px;
-            max-width: 480px;
-            line-height: 1.8;
+            margin-bottom: 36px;
+            max-width: 500px;
             font-weight: 300;
         }
 
@@ -475,35 +489,36 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
         }
 
         .arsenal-item {
             display: flex;
             align-items: flex-start;
             gap: 16px;
-            padding: 20px 24px;
+            padding: 18px 24px;
             background: var(--surface);
             border: 1px solid var(--border);
             transition: border-color 0.3s ease, transform 0.3s ease;
         }
 
         .arsenal-item:hover {
-            border-color: var(--jade);
-            transform: translateX(8px);
+            border-color: var(--accent);
+            transform: translateX(6px);
         }
 
         .arsenal-check {
-            width: 24px;
-            height: 24px;
-            background: var(--jade-glow);
-            border: 1px solid var(--jade);
+            width: 22px;
+            height: 22px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            color: var(--jade);
-            font-size: 0.8rem;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
             font-weight: 700;
         }
 
@@ -531,7 +546,7 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             display: flex;
             align-items: center;
             gap: 16px;
@@ -546,23 +561,22 @@
 
         .evidence-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3.2rem);
             font-weight: 900;
-            line-height: 1.05;
+            line-height: 1.1;
             letter-spacing: -1px;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             max-width: 600px;
         }
 
         .chapter-stack {
             display: flex;
             flex-direction: column;
-            gap: 0;
         }
 
         .chapter-row {
             display: grid;
-            grid-template-columns: 120px 1fr;
+            grid-template-columns: 100px 1fr;
             border-top: 1px solid var(--border);
             transition: background 0.4s ease;
             cursor: default;
@@ -585,26 +599,28 @@
             font-size: 0.75rem;
             letter-spacing: 2px;
             color: var(--text-muted);
-            padding: 36px 0 36px 8px;
+            padding: 30px 0;
             border-right: 1px solid var(--border);
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
         }
 
         .chapter-body {
-            padding: 36px 40px;
+            padding: 30px 40px;
         }
 
         .chapter-body h3 {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .chapter-body p {
             font-size: 0.9rem;
             color: var(--text-secondary);
-            max-width: 560px;
-            line-height: 1.7;
+            max-width: 580px;
+            line-height: 1.6;
         }
 
         /* ═══════════════════════════════════
@@ -612,47 +628,48 @@
            ═══════════════════════════════════ */
         #scene-verdict {
             background:
-                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(62, 207, 142, 0.04) 0%, transparent 70%),
+                radial-gradient(ellipse 70% 50% at 50% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 70%),
                 var(--obsidian);
         }
 
         .verdict-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 80px;
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
         .testimony {
-            padding: 48px;
+            padding: 40px;
             border: 1px solid var(--border);
+            background: var(--surface);
             position: relative;
-            transition: border-color 0.4s ease;
+            transition: border-color 0.4s ease, transform 0.4s ease;
         }
 
         .testimony:hover {
-            border-color: var(--jade);
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .testimony::before {
-            content: '"';
-            font-family: 'Playfair Display', serif;
-            font-size: 6rem;
-            line-height: 1;
+            content: '//';
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
             color: var(--border);
             position: absolute;
             top: 20px;
-            left: 30px;
+            left: 24px;
         }
 
         .testimony blockquote {
-            font-size: 1.05rem;
-            line-height: 1.8;
+            font-size: 1.0rem;
+            line-height: 1.7;
             color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 1;
+            font-style: italic;
         }
 
         .testimony cite {
@@ -674,14 +691,14 @@
             font-size: 0.75rem;
         }
 
-        /* Guarantee */
+        /* Guarantee Box */
         .guarantee {
             max-width: 700px;
             margin: 0 auto;
             text-align: center;
-            padding: 60px 48px;
-            border: 1px solid var(--jade);
-            background: var(--jade-glow);
+            padding: 50px 40px;
+            border: 1px solid var(--accent);
+            background: var(--accent-glow);
             position: relative;
         }
 
@@ -690,14 +707,14 @@
             font-size: 0.65rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            color: var(--jade);
-            margin-bottom: 20px;
+            color: var(--accent);
+            margin-bottom: 16px;
         }
 
         .guarantee h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 16px;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             color: var(--text-primary);
         }
 
@@ -705,7 +722,7 @@
             color: var(--text-secondary);
             max-width: 500px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
         /* ═══════════════════════════════════
@@ -728,7 +745,7 @@
             text-align: left;
             background: none;
             border: none;
-            padding: 28px 0;
+            padding: 24px 0;
             color: var(--text-primary);
             font-family: 'Outfit', sans-serif;
             font-size: 1.1rem;
@@ -744,6 +761,7 @@
         .faq-q:hover { color: var(--accent); }
 
         .faq-arrow {
+            font-family: 'JetBrains Mono', monospace;
             width: 24px;
             height: 24px;
             border: 1px solid var(--border);
@@ -751,7 +769,7 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                         border-color 0.3s ease,
@@ -767,14 +785,14 @@
         .faq-a {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .faq-a-inner {
-            padding-bottom: 28px;
+            padding-bottom: 24px;
             color: var(--text-secondary);
             font-size: 0.95rem;
-            line-height: 1.8;
+            line-height: 1.7;
             max-width: 600px;
         }
 
@@ -783,7 +801,7 @@
            ═══════════════════════════════════ */
         #scene-closing {
             background:
-                radial-gradient(ellipse 60% 50% at 50% 60%, rgba(200, 85, 61, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 50% 60%, rgba(16, 185, 129, 0.05) 0%, transparent 70%),
                 var(--obsidian);
             text-align: center;
         }
@@ -794,31 +812,31 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .closing-headline {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
             font-weight: 900;
-            line-height: 1;
+            line-height: 1.0;
             letter-spacing: -2px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .closing-sub {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-weight: 300;
         }
 
         .closing-price {
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
 
         .closing-price .price-current {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
         }
 
         .closing-footer {
@@ -860,7 +878,7 @@
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(8, 8, 10, 0.85);
+            background: rgba(6, 6, 8, 0.85);
             backdrop-filter: blur(12px);
             z-index: 20000;
             display: flex;
@@ -959,7 +977,7 @@
         .input-field:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 10px rgba(200, 85, 61, 0.15);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
         }
 
         .order-summary {
@@ -982,7 +1000,7 @@
             font-size: 1.1rem;
         }
 
-        /* Razorpay Mock Styles */
+        /* Razorpay Simulator */
         .rp-header {
             display: flex;
             justify-content: space-between;
@@ -994,7 +1012,7 @@
         .rp-logo {
             font-family: 'Outfit', sans-serif;
             font-weight: 800;
-            color: #008ecc;
+            color: var(--accent);
             font-size: 1.2rem;
             display: flex;
             align-items: center;
@@ -1141,8 +1159,9 @@
             .closing-footer { flex-direction: column; gap: 16px; text-align: center; }
             .crime-card { padding: 36px 28px; }
             .testimony { padding: 32px; }
-            .book-3d { width: 220px; height: 320px; }
+            .book-3d { width: 220px; height: 300px; }
             .hero-headline { font-size: clamp(2.5rem, 8vw, 4rem); }
+            .term-header { padding: 14px 20px; }
         }
 
         @media (max-width: 480px) {
@@ -1164,17 +1183,28 @@
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scroll-progress"></div>
 
-    <!-- ═══════ SCENE 1: THE OPENING ═══════ -->
+    <!-- Terminal Status Bar -->
+    <div class="term-header">
+        <div class="term-status">
+            <div class="term-status-dot"></div>
+            <span>SYSTEM_ONLINE: PIPELINE_ACTIVE</span>
+        </div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted);">
+            VER. 2026.06.14
+        </div>
+    </div>
+
+    <!-- ═══════ SCENE 1: THE OPENING (HERO) ═══════ -->
     <section class="scene" id="scene-opening">
         <div class="scene-inner">
-            <div class="hero-chapter reveal">Scene I</div>
+            <div class="hero-chapter reveal">Scene I — The Service Trap</div>
             <h1 class="hero-headline reveal reveal-delay-1">
-                Stop Your Landlord<br>
-                From <em>Stealing</em><br>
-                Your Deposit.
+                Escape The IT<br>
+                Service Company<br>
+                <em>Trap</em>.
             </h1>
             <p class="hero-sub reveal reveal-delay-2">
-                The legal framework to recover ₹50,000–₹2,00,000 without litigation, court visits, or months of waiting. Copy-paste templates. Specific IPC sections. Tested on Indian landlords.
+                The systematic roadmap for developers at TCS, Infosys, and Wipro to transition into high-paying product-based startups and MAANG companies without expensive coding bootcamps.
             </p>
             <div class="reveal reveal-delay-3">
                 <div class="hero-price-strip">
@@ -1182,47 +1212,47 @@
                     <span class="price-original">₹499</span>
                 </div>
                 <a href="#scene-closing" class="cta-primary" id="hero-cta-btn">
-                    Get the Tactical Playbook
+                    Get the Switch Playbook
                     <span style="font-size: 1.2rem;">→</span>
                 </a>
-                <span class="cta-subtext">Instant PDF download via email</span>
+                <span class="cta-subtext">Instant PDF download · 100% Free manual</span>
             </div>
         </div>
     </section>
 
-    <!-- ═══════ SCENE 2: THE CRIME ═══════ -->
+    <!-- ═══════ SCENE 2: THE TRAP (PROBLEMS) ═══════ -->
     <section class="scene" id="scene-crime">
         <div class="scene-inner">
-            <div class="crime-label reveal">Scene II — The Crime</div>
+            <div class="crime-label reveal">Scene II — The System</div>
             <h2 class="crime-title reveal reveal-delay-1">
-                The system is built to make you give up.
+                The system keeps you trapped in support cycles.
             </h2>
             <div class="crime-grid">
                 <div class="crime-card reveal reveal-delay-1">
                     <div class="crime-number">001</div>
-                    <h3>The Painting Scam</h3>
-                    <p>₹20,000 deducted for "repainting" a flat with walls that were already peeling when you moved in. Your deposit funds their renovation.</p>
+                    <h3>The Bench & Maintenance Trap</h3>
+                    <p>Assigned to legacy database maintenance or left idle on the bench. Your technical stack is decaying while you write zero real production code.</p>
                 </div>
                 <div class="crime-card reveal reveal-delay-2">
                     <div class="crime-number">002</div>
-                    <h3>False Wear & Tear</h3>
-                    <p>Charged for replacing geysers, fans, and curtains that degraded over four years of natural use. They bill you for time itself.</p>
+                    <h3>The Resume Filter</h3>
+                    <p>Recruiters at high-paying startups automatically filter out resumes featuring massive service company templates. You fail before reaching interviews.</p>
                 </div>
                 <div class="crime-card reveal reveal-delay-3">
                     <div class="crime-number">003</div>
-                    <h3>The Ghosting Protocol</h3>
-                    <p>Keys handed over. Messages sent. Then silence. Calls go unanswered for six months. They are betting you will move on.</p>
+                    <h3>DSA & System Design Panic</h3>
+                    <p>Startups test heavily on LeetCode patterns and scalable systems. You have never designed for scaling, and bootcamps cost ₹1,00,000+.</p>
                 </div>
                 <div class="crime-card reveal reveal-delay-4">
                     <div class="crime-number">004</div>
-                    <h3>The Police Dead End</h3>
-                    <p>"This is a civil matter, sir." The officer turns you away. No FIR. No leverage. No recourse. Exactly what the landlord planned.</p>
+                    <h3>The 90-Day Notice Lock</h3>
+                    <p>Startups want immediate joiners. Service HR holds you hostage with a strict 3-month notice period, killing potential offers before they start.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════ SCENE 3: THE WEAPON ═══════ -->
+    <!-- ═══════ SCENE 3: THE WEAPON (SOLUTION) ═══════ -->
     <section class="scene" id="scene-weapon">
         <div class="scene-inner">
             <div class="weapon-layout">
@@ -1231,44 +1261,44 @@
                         <div class="book-back"></div>
                         <div class="book-spine"></div>
                         <div class="book-cover">
-                            <div class="book-tag">Legal Playbook</div>
-                            <div class="book-cover-title">The Tenant's Shield</div>
-                            <div class="book-cover-subtitle">Legal Tactics & Deposit Recovery in India · 2025 Edition</div>
+                            <div class="book-tag">Switch Playbook</div>
+                            <div class="book-cover-title">The Switch Manual</div>
+                            <div class="book-cover-subtitle">Escaping Service Companies & Cracking Product Interviews · 2026 Edition</div>
                         </div>
                     </div>
                 </div>
                 <div class="weapon-content reveal-right">
-                    <h2>Don't beg for<br>your own money.</h2>
+                    <h2>Stop doing support.<br>Start scaling systems.</h2>
                     <p class="weapon-desc">
-                        This is not a "negotiation guide." It is a legal toolkit designed to force compliance using the Indian Penal Code and Consumer Protection Act.
+                        This is not a general "programming tutorial." It is a tactical playbook designed to help service engineers bypass filters, master DSA, and negotiate double salary hikes.
                     </p>
                     <ul class="arsenal-list">
                         <li class="arsenal-item reveal reveal-delay-1">
                             <div class="arsenal-check">✓</div>
                             <div class="arsenal-text">
-                                <strong>Copy-Paste Legal Notices</strong>
-                                <span>Professionally drafted. Send within 24 hours of reading.</span>
+                                <strong>Resume Translation Bullet Points</strong>
+                                <span>Copy-paste bullet points to frame support tasks as high-scale achievements.</span>
                             </div>
                         </li>
                         <li class="arsenal-item reveal reveal-delay-2">
                             <div class="arsenal-check">✓</div>
                             <div class="arsenal-text">
-                                <strong>WhatsApp Escalation Scripts</strong>
-                                <span>Psychological messaging sequences. Make ignoring you costly.</span>
+                                <strong>Notice Period Buyout Scripts</strong>
+                                <span>Exact templates to negotiate a 30-day early release or secure buyout fees.</span>
                             </div>
                         </li>
                         <li class="arsenal-item reveal reveal-delay-3">
                             <div class="arsenal-check">✓</div>
                             <div class="arsenal-text">
-                                <strong>IPC Section 406 References</strong>
-                                <span>Criminal Breach of Trust. Escalate from "dispute" to "offense."</span>
+                                <strong>The 80/20 DSA Pattern Checklist</strong>
+                                <span>Master the 100 recurring patterns instead of resolving 800 random LeetCode puzzles.</span>
                             </div>
                         </li>
                         <li class="arsenal-item reveal reveal-delay-4">
                             <div class="arsenal-check">✓</div>
                             <div class="arsenal-text">
-                                <strong>Consumer Court Filing Kit</strong>
-                                <span>₹100 filing fee. Forces judgment in months, not years.</span>
+                                <strong>Visual System Design Guide</strong>
+                                <span>Visual model architectures for products like Swiggy, Dunzo, and IRCTC.</span>
                             </div>
                         </li>
                     </ul>
@@ -1277,68 +1307,68 @@
         </div>
     </section>
 
-    <!-- ═══════ SCENE 4: THE EVIDENCE ═══════ -->
+    <!-- ═══════ SCENE 4: THE EVIDENCE (CHAPTERS) ═══════ -->
     <section class="scene" id="scene-evidence">
         <div class="scene-inner">
-            <div class="evidence-label reveal">Scene IV — Inside the Playbook</div>
+            <div class="evidence-label reveal">Scene IV — Inside the Manual</div>
             <h2 class="evidence-title reveal reveal-delay-1">
-                Eight chapters.<br>Zero filler.
+                Eight chapters.<br>Completely practical.
             </h2>
             <div class="chapter-stack">
                 <div class="chapter-row reveal reveal-delay-1">
                     <div class="chapter-idx">CH. 01</div>
                     <div class="chapter-body">
-                        <h3>The Notice Period Trap</h3>
-                        <p>How the "1 month notice" clause gets weaponized against you — and the legal loopholes that void it when misapplied.</p>
+                        <h3>Decoding the Product Mindset</h3>
+                        <p>How product developers think, prioritize tasks, and write clean scalable code. Let go of the rigid service delivery mindset.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-2">
                     <div class="chapter-idx">CH. 02</div>
                     <div class="chapter-body">
-                        <h3>The Rental Agreement Audit</h3>
-                        <p>Clauses that void your rights versus clauses that protect them. Learn to read the fine print your broker skipped.</p>
+                        <h3>The Resume Overhaul</h3>
+                        <p>Ditching standard service layouts to bypass automated ATS filters. Translating maintenance lines into scale metrics.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-3">
                     <div class="chapter-idx">CH. 03</div>
                     <div class="chapter-body">
-                        <h3>Move-In Photo Evidence</h3>
-                        <p>The 12 specific photos you must take on Day 1. Timestamped metadata that landlords cannot dispute in any forum.</p>
+                        <h3>The 80/20 DSA Roadmap</h3>
+                        <p>The 100 core code patterns that get asked in Indian tech interviews. Forget solving hundreds of unnecessary problems.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-2">
                     <div class="chapter-idx">CH. 04</div>
                     <div class="chapter-body">
-                        <h3>The Legal Notice Templates</h3>
-                        <p>Three ready-to-send drafts: the polite warning, the stern demand, and the criminal complaint threat. Copy, edit, send.</p>
+                        <h3>System Design for Service Developers</h3>
+                        <p>How to discuss architecture, load balancers, and database sharding even if you only ran support queries in your current job.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-3">
                     <div class="chapter-idx">CH. 05</div>
                     <div class="chapter-body">
-                        <h3>Police Station Tactics</h3>
-                        <p>The specific words and IPC sections to quote that transform a "civil matter" dismissal into an actionable complaint.</p>
+                        <h3>Bypassing the 90-Day Notice Lock</h3>
+                        <p>Email scripts, negotiation strategies, and how to line up multiple offers to force your current manager's release hand.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-4">
                     <div class="chapter-idx">CH. 06</div>
                     <div class="chapter-body">
-                        <h3>Negotiation Pressure Points</h3>
-                        <p>Psychological levers. When to push. When to wait. How to make silence work in your favor, not theirs.</p>
+                        <h3>Behavioral Rounds (MAANG Secrets)</h3>
+                        <p>How to answer "Why do you want to switch?" without complaining about your service company. STAR format guides.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-3">
                     <div class="chapter-idx">CH. 07</div>
                     <div class="chapter-body">
-                        <h3>Small Causes Court — Fast Track</h3>
-                        <p>Filing a summary suit that costs ₹100 and forces judgment in weeks. The exact format, fees, and procedure.</p>
+                        <h3>Salary Negotiation (The 100% Hike Hack)</h3>
+                        <p>Negotiation frameworks to escape the standard 20% appraisal and secure massive product company salary packages.</p>
                     </div>
                 </div>
                 <div class="chapter-row reveal reveal-delay-4">
                     <div class="chapter-idx">CH. 08</div>
                     <div class="chapter-body">
-                        <h3>Emergency Eviction Defense</h3>
-                        <p>What to do if locked out illegally. Rights against utility cutoffs. The immediate legal remedies available at midnight.</p>
+                        <h3>Surviving the First 90 Days</h3>
+                        <p>How to quickly adapt to the high-velocity, high-ownership deployment culture of fast-paced tech startups.</p>
                     </div>
                 </div>
             </div>
@@ -1348,35 +1378,35 @@
     <!-- ═══════ SCENE 5: THE VERDICT ═══════ -->
     <section class="scene" id="scene-verdict">
         <div class="scene-inner">
-            <div class="evidence-label reveal">Scene V — The Verdict</div>
+            <div class="evidence-label reveal">Scene V — The Escaped</div>
             <h2 class="evidence-title reveal reveal-delay-1">
-                They paid.<br>In full.
+                They transitioned.<br>Successfully.
             </h2>
             <div class="verdict-layout">
                 <div class="testimony reveal reveal-delay-2">
                     <blockquote>
-                        "My landlord stopped answering calls after I moved out of Koramangala. I used the legal notice template from Chapter 4. He transferred ₹75,000 in four days. Didn't even argue."
+                        "I was stuck in a maintenance project at Infosys earning ₹3.6 LPA. Using the Resume Overhaul and DSA checklist, I cleared Swiggy's backend round. My CTC is now ₹18 LPA."
                     </blockquote>
                     <cite>
-                        <strong>Rohan Mehta</strong>
-                        <span>Software Engineer · Bangalore · ₹75,000 recovered</span>
+                        <strong>Abhishek S.</strong>
+                        <span>Software Engineer · Bangalore · Switch to Swiggy</span>
                     </cite>
                 </div>
                 <div class="testimony reveal reveal-delay-3">
                     <blockquote>
-                        "The police said 'civil matter' twice. This book taught me the exact IPC section to cite in my follow-up email. Got my full ₹1.2L deposit back within two weeks."
+                        "The notice period negotiation script in Chapter 5 saved my career. Wipro refused early release, but the scripts helped me secure a buyout paid in full by my new employer."
                     </blockquote>
                     <cite>
-                        <strong>Priya Srinivasan</strong>
-                        <span>Architect · Pune · ₹1,20,000 recovered</span>
+                        <strong>Ridhima K.</strong>
+                        <span>Backend Engineer · Pune · Switch to Scale Startup</span>
                     </cite>
                 </div>
             </div>
             <div class="guarantee reveal reveal-delay-4">
-                <div class="guarantee-badge">Zero Risk</div>
-                <h3>100% Money-Back Shield</h3>
+                <div class="guarantee-badge">Proof of Work</div>
+                <h3>100% Practical Guarantee</h3>
                 <p>
-                    If these tactics don't give you a clear, actionable path to recovering your deposit — or if you're unsatisfied for any reason — email within 30 days for a full refund. No forms. No questions.
+                    If this roadmap does not give you a clear, actionable plan to rebuild your profile and navigate Indian product-company interview rounds, email us for a personal review.
                 </p>
             </div>
         </div>
@@ -1387,50 +1417,39 @@
         <div class="scene-inner">
             <div class="evidence-label reveal">Scene VI — Objections</div>
             <h2 class="evidence-title reveal reveal-delay-1">
-                Before you decide.
+                Frequently Answered.
             </h2>
             <div class="faq-container">
                 <div class="faq-item reveal reveal-delay-1">
                     <button class="faq-q" id="faq-btn-1">
-                        My rental agreement is unregistered. Does any of this apply?
+                        Can a service developer with 5+ years of experience still transition?
                         <span class="faq-arrow">+</span>
                     </button>
                     <div class="faq-a">
                         <div class="faq-a-inner">
-                            An unregistered agreement is still admissible as evidence of a financial transaction. The playbook covers specific tactics for unregistered rentals — including using bank transfer records and WhatsApp receipts as alternative proof in both police complaints and consumer forums.
+                            Yes. The guide contains specific advice for mid-level transitions (SDE-2/3) and how to pitch your years of maintenance experience as maturity, while matching product scalability requirements.
                         </div>
                     </div>
                 </div>
                 <div class="faq-item reveal reveal-delay-2">
                     <button class="faq-q" id="faq-btn-2">
-                        Can the police actually help? They turned me away once already.
+                        Do I need a Tier-1 degree (IIT/NIT) to get off-campus product interviews?
                         <span class="faq-arrow">+</span>
                     </button>
                     <div class="faq-a">
                         <div class="faq-a-inner">
-                            That's the standard response. This book provides the specific legal language and IPC citations — particularly Section 406 (Criminal Breach of Trust) — that reframe the complaint from a "civil dispute" into a cognizable offense. Most tenants simply don't know the right words.
+                            No. Startups look for proof of work, github projects, and technical competency. The manual provides a template for open-source contributions and portfolio projects that override degree filters.
                         </div>
                     </div>
                 </div>
                 <div class="faq-item reveal reveal-delay-3">
                     <button class="faq-q" id="faq-btn-3">
-                        Does this work for PGs and co-living hostels?
+                        How do I discuss system design if I have never worked on scale?
                         <span class="faq-arrow">+</span>
                     </button>
                     <div class="faq-a">
                         <div class="faq-a-inner">
-                            Yes. The principles of "unjust enrichment" and breach of trust apply to any deposit taken for accommodation. The legal notice templates and consumer court strategies are adaptable for PG operators and co-living providers.
-                        </div>
-                    </div>
-                </div>
-                <div class="faq-item reveal reveal-delay-4">
-                    <button class="faq-q" id="faq-btn-4">
-                        Is this just generic legal advice I could Google?
-                        <span class="faq-arrow">+</span>
-                    </button>
-                    <div class="faq-a">
-                        <div class="faq-a-inner">
-                            Googling gives you scattered, outdated, and state-agnostic advice. This playbook provides city-specific procedures (Bangalore, Mumbai, Delhi NCR, Pune), ready-to-send document templates, and a step-by-step escalation ladder — from WhatsApp message to courtroom filing. Try Googling "exact legal notice format for security deposit refund under Section 406 IPC with Bangalore jurisdiction" and see what you find.
+                            The System Design chapter is highly visual, explaining microservices, caching, and sharding using relatable models (like IRCTC or Dunzo operations) that you can easily reconstruct on a whiteboard.
                         </div>
                     </div>
                 </div>
@@ -1443,10 +1462,10 @@
         <div class="scene-inner">
             <div class="closing-chapter reveal">Final Scene</div>
             <h2 class="closing-headline reveal reveal-delay-1">
-                Your money.<br>Your move.
+                Your Career.<br>Your Move.
             </h2>
             <p class="closing-sub reveal reveal-delay-2">
-                Get it free to protect ₹50,000–₹2,00,000. The math is not complicated.
+                Escaping support work doesn't require a ₹1 Lakh bootcamp. It requires a strategy.
             </p>
             <div class="closing-price reveal reveal-delay-3">
                 <div class="hero-price-strip" style="justify-content: center;">
@@ -1456,13 +1475,13 @@
             </div>
             <div class="reveal reveal-delay-4">
                 <a href="#" class="cta-primary" id="final-cta-btn">
-                    Get Instant Access Now
+                    Get the Switch Manual Now
                     <span style="font-size: 1.2rem;">→</span>
                 </a>
-                <span class="cta-subtext">Secure payment via Razorpay · Instant PDF delivery</span>
+                <span class="cta-subtext">Instant PDF delivery · Open-access manual</span>
             </div>
             <div class="closing-footer reveal reveal-delay-5">
-                <div class="closing-footer-left">The Tenant's Shield · 2025</div>
+                <div class="closing-footer-left">The Switch Manual · 2026</div>
                 <div class="closing-footer-right">Privacy · Terms · Contact</div>
             </div>
         </div>
@@ -1475,9 +1494,9 @@
             
             <!-- Step 1: Customer Details -->
             <div class="modal-step active" id="step-details">
-                <h3 class="modal-title">Secure Checkout</h3>
+                <h3 class="modal-title">Secure Download</h3>
                 <div class="order-summary">
-                    <span>The Tenant's Shield (PDF)</span>
+                    <span>The Switch Manual (PDF)</span>
                     <strong>FREE</strong>
                 </div>
                 <div class="input-group">
@@ -1541,11 +1560,11 @@
                 <div class="success-details">
                     <h3>Access Granted!</h3>
                     <p>
-                        Your free copy of <strong>The Tenant's Shield</strong> PDF has been prepared for your download.
+                        Your free copy of <strong>The Switch Manual</strong> PDF has been prepared for your download.
                     </p>
                 </div>
                 <div class="transaction-box">
-                    Ref ID: TS-MOCK-<span id="tx-id"></span><br>
+                    Ref ID: SM-MOCK-<span id="tx-id"></span><br>
                     Email: <span id="success-email"></span>
                 </div>
                 <button class="cta-primary" id="btn-download-pdf" style="width: 100%; justify-content: center; background: var(--jade);">
@@ -1702,19 +1721,21 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << >> /Contents 4 0 R >>
 endobj
 4 0 obj
-<< /Length 131 >>
+<< /Length 209 >>
 stream
 BT
 /F1 18 Tf
 72 712 Td
-(THE TENANT'S SHIELD - PREVIEW CHAPTER) Tj
+(THE SERVICE-TO-PRODUCT SWITCH - PREVIEW MANUAL) Tj
 /F1 12 Tf
 0 -40 Td
-(Thank you for downloading the preview version of The Tenant's Shield.) Tj
+(Thank you for claiming your free copy of The Switch Manual.) Tj
 0 -20 Td
-(Your free copy has been claimed successfully.) Tj
-0 -20 Td
-(In this guide, you will learn the exact steps to recover your security deposit.) Tj
+(This manual contains the core roadmap for Indian IT engineers to transition) Tj
+0 -15 Td
+(from service giants (TCS, Infosys, Wipro) into product startups.) Tj
+0 -25 Td
+(Includes: Resume Overhaul cheat sheets, 80/20 DSA patterns, system design maps.) Tj
 ET
 endstream
 endobj
@@ -1728,13 +1749,13 @@ xref
 trailer
 << /Size 5 /Root 1 0 R >>
 startxref
-387
+472
 %%EOF`;
                 
                 const blob = new Blob([pdfContent], { type: 'application/pdf' });
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(blob);
-                link.download = 'tenants_shield_preview.pdf';
+                link.download = 'service_to_product_switch_preview.pdf';
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
