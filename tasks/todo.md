@@ -40,6 +40,10 @@ This plan outlines the steps to perform a deep-dive market research and demand v
   3. *Review (Native Gemini)*: Checked for brand guidelines, verified the demand data, and ran targeted web searches to confirm tenant dispute frequency (e.g., in Bangalore).
 - **Top Niche Recommendation**: Identified **Urban Tenant Rights & Security Deposit Recovery** as the highest potential niche due to high urgency (immediate loss of ₹50,000–₹2,00,000 deposits), strong willingness to pay (₹499–₹799 price point), and very low existing competition.
 - **Verification of Guidelines**: Ensured the writing strictly adheres to the tone guidelines in `brand_identity.json` and excludes all 18 forbidden AI clichés.
+- **Mobile Friendliness Overhaul**: Reconfigured CSS properties on smaller screens to disable strict scroll snapping (`scroll-snap-type: none`) and prevent content clipping (`overflow: visible` on `.scene`), enabling smooth, responsive touch scrolling on mobile.
+- **Interactivity & Free Playbook Access**: Wired up CTA buttons to open a custom, dark-glassmorphism checkout drawer. Transformed the pricing layout across the site from ₹499 to **FREE** (slashing ₹499 as the original price).
+- **Vercel & GitHub Deployments**: Deployed the finalized static site to Vercel at `https://ebookmarketresearchindia.vercel.app` and successfully synced all changes to the public GitHub repo `tenant-shield-landing-page` under `Ammar-32-dev`.
+
 
 ## Phase 7: Mobile Friendliness & Interactive CTA Overhaul
 - [x] Fix mobile clipping: Remove `overflow: hidden` on `.scene` elements so content doesn't get clipped on smaller screens.
